@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowJs": false,
+    "checkJs": false,
+    "paths": {
+      "@birb/react-foundation": ["../src/index.ts"]
+    }
+  },
+  "include": ["*.ts", "*.tsx"],
+  "exclude": ["node_modules", "dist"]
+}
