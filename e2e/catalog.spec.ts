@@ -27,6 +27,32 @@ const modes = {
   dark: { surface: '#1a1c2c', disabled: '#94b0c2', primary: '#73eff7' },
 };
 
+test.describe('system mode on a dark device', () => {
+  test.use({ colorScheme: 'dark' });
+
+  test('resolves the dark roles', async ({ page }) => {
+    await page.goto('/?theme=system');
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'system');
+    expect((await token(page, '--surface')).toLowerCase()).toBe(
+      modes.dark.surface,
+    );
+    expect((await token(page, '--primary')).toLowerCase()).toBe(
+      modes.dark.primary,
+    );
+  });
+});
+
+test.describe('system mode on a light device', () => {
+  test.use({ colorScheme: 'light' });
+
+  test('resolves the light roles', async ({ page }) => {
+    await page.goto('/?theme=system');
+    expect((await token(page, '--surface')).toLowerCase()).toBe(
+      modes.light.surface,
+    );
+  });
+});
+
 for (const [mode, expected] of Object.entries(modes)) {
   test.describe(`${mode} mode`, () => {
     test('resolves the semantic roles', async ({ page }) => {

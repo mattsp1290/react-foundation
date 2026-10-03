@@ -28,8 +28,8 @@
     "*.css"
   ],
   "scripts": {
-    "prepare": "tsc -p tsconfig.build.json",
-    "build": "tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "build": "node scripts/clean-dist.mjs && tsc -p tsconfig.build.json",
     "generate:tokens": "node scripts/generate-tokens.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit --pretty false",
     "lint": "eslint . --max-warnings=0",

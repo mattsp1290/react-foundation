@@ -7,8 +7,10 @@ import { TextField } from './TextField.js';
 /**
  * Registration form for the Birb browser session. Credentials are validated
  * before `onSubmit`; a validation message takes the place of the host's
- * `error`, so at most one alert exists. The ids and the copy are fixed
- * contract text, so render at most one per document.
+ * `error`, so at most one alert exists. `onChange` fires on every edit, also
+ * while `pending`; a host that resets its mutation there should do so only
+ * when the mutation has failed. The ids and the copy are fixed contract text,
+ * so render at most one per document.
  */
 export function RegisterForm({
   pending,

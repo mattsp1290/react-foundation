@@ -1,6 +1,9 @@
 import { ApiError } from './errors.js';
 
-export type Request = (path: string, init?: RequestInit) => Promise<Response>;
+export type ApiRequest = (
+  path: string,
+  init?: RequestInit,
+) => Promise<Response>;
 
 /**
  * Builds the fetch wrapper for a cookie-session API. The host decides how a
@@ -10,7 +13,7 @@ export function createRequest({
   resolveUrl,
 }: {
   resolveUrl: (path: string) => string;
-}): Request {
+}): ApiRequest {
   return async (path, init = {}) => {
     const response = await fetch(resolveUrl(path), {
       ...init,

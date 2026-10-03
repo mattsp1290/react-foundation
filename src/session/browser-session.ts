@@ -1,6 +1,6 @@
 import { basicAuthorization } from './credentials.js';
 import { ApiError } from './errors.js';
-import type { Request } from './request.js';
+import type { ApiRequest } from './request.js';
 
 export type CurrentUser = { username: string };
 export type RegisteredUser = { username: string };
@@ -16,7 +16,7 @@ export type BrowserSession = {
  * The Birb browser-session contract. Paths reach `request` unchanged; the
  * host's `resolveUrl` adds any proxy prefix.
  */
-export function createBrowserSession(request: Request): BrowserSession {
+export function createBrowserSession(request: ApiRequest): BrowserSession {
   return {
     async register(username, password) {
       return (

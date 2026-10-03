@@ -7,7 +7,7 @@ export {
 } from './theme.js';
 
 export { ApiError } from './session/errors.js';
-export { createRequest, type Request } from './session/request.js';
+export { createRequest, type ApiRequest } from './session/request.js';
 export {
   createBrowserSession,
   type BrowserSession,

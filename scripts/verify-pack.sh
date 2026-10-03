@@ -20,4 +20,13 @@ cd "$tmp/consumer"
 npm init -y >/dev/null
 npm install --no-audit --no-fund react@19 react-dom@19 "$tarball" >/dev/null
 node --input-type=module -e "import('@birb/react-foundation').then(m => { if (typeof m.applyTheme !== 'function') throw new Error('entry missing applyTheme'); })"
+# Every exports target, including the types and the CSS subpaths, must exist.
+node --input-type=module -e "
+import { existsSync, readFileSync } from 'node:fs';
+const root = 'node_modules/@birb/react-foundation/';
+const { exports } = JSON.parse(readFileSync(root + 'package.json', 'utf8'));
+const targets = Object.values(exports).flatMap((t) => typeof t === 'string' ? [t] : Object.values(t));
+if (targets.length < 4) throw new Error('unexpected exports map');
+for (const target of targets) if (!existsSync(root + target)) throw new Error('exports target missing: ' + target);
+"
 echo "packed install ok"
