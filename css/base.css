@@ -1,0 +1,129 @@
+/*
+ * Element and layout defaults. Import after tokens.css. Every color comes from
+ * a semantic role; this file holds no color literal.
+ */
+fieldset {
+  border: 2px solid var(--on-surface);
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+}
+legend {
+  font-weight: 700;
+  padding: 0 4px;
+}
+fieldset label {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  min-height: 44px;
+}
+fieldset input[type='radio'] {
+  min-height: auto;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+}
+a {
+  color: inherit;
+  font-weight: 700;
+}
+.app-shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.masthead,
+footer {
+  padding: 16px;
+  border-color: var(--on-surface);
+  border-style: solid;
+}
+.masthead {
+  border-width: 0 0 2px;
+  font-size: 1.25rem;
+}
+.masthead a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+}
+footer {
+  border-width: 2px 0 0;
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+}
+main {
+  display: grid;
+  place-items: start center;
+  padding: 32px 16px;
+}
+.panel {
+  width: min(100%, 34rem);
+  border: 2px solid var(--on-surface);
+  padding: 24px;
+}
+main,
+.panel {
+  min-width: 0;
+}
+h1 {
+  margin-top: 0;
+}
+form {
+  display: grid;
+  gap: 8px;
+}
+input,
+button {
+  min-height: 48px;
+  border: 2px solid var(--on-surface);
+  border-radius: 0;
+  font: inherit;
+  padding: 8px 12px;
+}
+input {
+  background: var(--surface);
+  color: var(--on-surface);
+}
+button {
+  background: var(--primary);
+  color: var(--on-primary);
+  cursor: pointer;
+  font-weight: 700;
+  margin-top: 8px;
+}
+button:enabled:hover,
+button:enabled:active {
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+}
+button:disabled {
+  background: var(--surface);
+  color: var(--disabled);
+  border: 1px solid var(--disabled);
+  cursor: default;
+}
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.error {
+  border-left: 4px solid var(--error);
+  padding-left: 12px;
+  font-weight: 700;
+}
+.inline-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.inline-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+}
