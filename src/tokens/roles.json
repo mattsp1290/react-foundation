@@ -1,0 +1,24 @@
+{
+  "light": {
+    "surface": "white",
+    "onSurface": "black",
+    "primary": "blue",
+    "onPrimary": "white",
+    "primaryContainer": "darkBlue",
+    "onPrimaryContainer": "white",
+    "focus": "darkBlue",
+    "error": "purple",
+    "disabled": "gray"
+  },
+  "dark": {
+    "surface": "black",
+    "onSurface": "white",
+    "primary": "cyan",
+    "onPrimary": "black",
+    "primaryContainer": "lightBlue",
+    "onPrimaryContainer": "black",
+    "focus": "cyan",
+    "error": "yellow",
+    "disabled": "lightGray"
+  }
+}
